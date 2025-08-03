@@ -28,7 +28,12 @@ class ConditionalExercises:
             str: "positive" or "not positive"
         """
         # TODO: Implement this method
-        raise NotImplementedError("Method not implemented yet")
+        # raise NotImplementedError("Method not implemented yet")
+        if number > 0:
+            return 'positive'
+        else:
+            return 'not positive'
+
 
     def check_even_odd(self, number: int) -> str:
         """
@@ -42,7 +47,11 @@ class ConditionalExercises:
             str: "even" or "odd"
         """
         # TODO: Implement this method
-        raise NotImplementedError("Method not implemented yet")
+        # raise NotImplementedError("Method not implemented yet")
+        if number % 2 == 0:
+            return "even"
+        else:
+            return "odd"
 
     def get_letter_grade(self, score: int) -> str:
         """
@@ -56,7 +65,16 @@ class ConditionalExercises:
             str: Letter grade
         """
         # TODO: Implement this method
-        raise NotImplementedError("Method not implemented yet")
+        # raise NotImplementedError("Method not implemented yet")
+        if score >= 90 and score <= 100:
+            return "A"
+        elif score >= 80 and score <= 89:
+            return "B"
+        elif score >= 70 and score <= 79:
+            return "C"
+        else:
+            return "F"
+
 
     def categorize_number(self, number: int) -> str:
         """
@@ -71,7 +89,16 @@ class ConditionalExercises:
             str: Category description
         """
         # TODO: Implement this method
-        raise NotImplementedError("Method not implemented yet")
+        # raise NotImplementedError("Method not implemented yet")
+        if number > 0:
+            if number > 100:
+                return "large positive"
+            else:
+                return "small positive"
+        if number == 0:
+            return "zero"
+        else:
+            return "negative"
 
     def get_day_name(self, day_number: int) -> str:
         """
@@ -86,7 +113,24 @@ class ConditionalExercises:
             str: Day name or "Invalid day"
         """
         # TODO: Implement this method using match-case or if-elif
-        raise NotImplementedError("Method not implemented yet")
+        # raise NotImplementedError("Method not implemented yet")
+        match day_number:
+            case 1:
+                return "Monday"
+            case 2:
+                return "Tuesday"
+            case 3:
+                return "Wednesday"
+            case 4:
+                return "Thursday"
+            case 5:
+                return "Friday"
+            case 6:
+                return "Saturday"
+            case 7:
+                return "Sunday"
+            case _:
+                return "Invalid day"
 
     def get_days_in_month(self, month: int) -> int:
         """
@@ -100,7 +144,16 @@ class ConditionalExercises:
             int: Number of days in the month, or -1 for invalid month
         """
         # TODO: Implement this method using match-case or if-elif
-        raise NotImplementedError("Method not implemented yet")
+
+        match month:
+            case 1 | 3 | 5 | 7 | 8 | 10 | 12:
+                return 31
+            case 4 | 6 | 9 | 11:
+                return 30
+            case 2:
+                return 28
+            case _:
+                return -1
 
     def get_absolute_value(self, number: int) -> int:
         """
@@ -115,7 +168,8 @@ class ConditionalExercises:
         """
         # TODO: Implement this method using conditional expression
         # return value_if_true if condition else value_if_false
-        raise NotImplementedError("Method not implemented yet")
+        # raise NotImplementedError("Method not implemented yet")
+        return number if number >=0 else -number
 
     def can_vote(self, age: int, is_citizen: bool) -> bool:
         """
@@ -131,7 +185,10 @@ class ConditionalExercises:
             bool: True if can vote, False otherwise
         """
         # TODO: Implement this method
-        raise NotImplementedError("Method not implemented yet")
+        # raise NotImplementedError("Method not implemented yet")
+
+        can_vote = True if age >= 18 and is_citizen else False
+        return can_vote
 
     def get_greeting(self, name: Optional[str]) -> str:
         """
@@ -147,7 +204,11 @@ class ConditionalExercises:
         """
         # TODO: Implement this method
         # Be careful with None checks and empty string checks
-        raise NotImplementedError("Method not implemented yet")
+        # raise NotImplementedError("Method not implemented yet")
+        if not name:
+            return "Hello, Guest!"
+        else:
+            return f"Hello, {name}!"
 
     def is_valid_triangle(self, a: float, b: float, c: float) -> bool:
         """
@@ -165,7 +226,9 @@ class ConditionalExercises:
         """
         # TODO: Implement this method
         # Check: a + b > c and a + c > b and b + c > a
-        raise NotImplementedError("Method not implemented yet")
+        # raise NotImplementedError("Method not implemented yet")
+        is_valid = a + b > c and a + c > b and b + c > a
+        return is_valid
 
     def check_password_strength(self, password: str) -> str:
         """
@@ -183,7 +246,24 @@ class ConditionalExercises:
         """
         # TODO: Implement this method
         # Use string methods: any(), str.isupper(), str.islower(), str.isdigit()
-        raise NotImplementedError("Method not implemented yet")
+        # raise NotImplementedError("Method not implemented yet")
+
+        has_uppercase = any(c.isupper() for c in password)
+        has_lowercase = any(c.islower() for c in password)
+        has_digit = any(c.isdigit() for c in password)
+        has_special = any(not c.isalnum() for c in password)
+
+        criteria_met = sum([has_uppercase, has_lowercase, has_digit, has_special])
+
+        if len(password) >= 12 and criteria_met == 4:
+            return "strong"
+        elif len(password) >= 8 and criteria_met == 3:
+            return "medium"
+        else:
+            return "weak"
+    
+
+    
 
     def get_season(self, month: int) -> str:
         """
@@ -201,4 +281,16 @@ class ConditionalExercises:
             str: Season name or "Invalid month"
         """
         # TODO: Implement this method
-        raise NotImplementedError("Method not implemented yet")
+        # raise NotImplementedError("Method not implemented yet")
+
+        match month:
+            case 3 | 4 | 5:
+                return "Spring"
+            case 6 | 7 | 8:
+                return "Summer"
+            case 9 | 10 | 11:
+                return "Fall"
+            case 12 | 1 | 2:
+                return "Winter"
+            case _:
+                return "Invalid month"
