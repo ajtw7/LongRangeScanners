@@ -41,7 +41,8 @@ class ListArrayExercises:
         Returns:
             List of integers from 1 to n
         """
-        raise NotImplementedError("Implement create_number_list")
+        # raise NotImplementedError("Implement create_number_list")
+        return list(range(1, n + 1))
     
     def double_list_elements(self, lst: List[int]) -> List[int]:
         """
@@ -58,7 +59,9 @@ class ListArrayExercises:
         Returns:
             New list with doubled values
         """
-        raise NotImplementedError("Implement double_list_elements")
+        # raise NotImplementedError("Implement double_list_elements")
+        doubles = [x * 2 for x in lst]
+        return doubles
     
     def find_element(self, lst: List[int], target: int) -> int:
         """
@@ -78,7 +81,12 @@ class ListArrayExercises:
         Returns:
             Index of first occurrence, or -1 if not found
         """
-        raise NotImplementedError("Implement find_element")
+        # raise NotImplementedError("Implement find_element")
+        # Co-Pilot help
+        try:
+            return lst.index(target)
+        except ValueError:
+            return -1
     
     def calculate_average(self, lst: List[int]) -> float:
         """
@@ -97,7 +105,14 @@ class ListArrayExercises:
         Returns:
             Average value, or 0.0 for empty list
         """
-        raise NotImplementedError("Implement calculate_average")
+
+        if not lst:
+            return 0.0
+        return sum(lst) / len(lst)
+        
+        
+
+        
     
     def filter_even_numbers(self, lst: List[int]) -> List[int]:
         """
@@ -110,11 +125,13 @@ class ListArrayExercises:
         
         Args:
             lst: Input list of integers
-            
+           
         Returns:
             New list with only even numbers
         """
-        raise NotImplementedError("Implement filter_even_numbers")
+        # raise NotImplementedError("Implement filter_even_numbers")
+        result = [x for x in lst if x % 2 == 0]
+        return result
     
     def remove_value(self, lst: List[int], value: int) -> List[int]:
         """
@@ -132,7 +149,9 @@ class ListArrayExercises:
         Returns:
             New list without the specified value
         """
-        raise NotImplementedError("Implement remove_value")
+        # raise NotImplementedError("Implement remove_value")
+        result = [x for x in lst if x != value]
+        return result
     
     def sort_list(self, lst: List[int]) -> List[int]:
         """
@@ -149,7 +168,10 @@ class ListArrayExercises:
         Returns:
             New sorted list
         """
-        raise NotImplementedError("Implement sort_list")
+        # raise NotImplementedError("Implement sort_list")
+        new_list = sorted(lst)
+        return new_list
+
     
     def merge_sorted_lists(self, list1: List[int], list2: List[int]) -> List[int]:
         """
@@ -167,7 +189,9 @@ class ListArrayExercises:
         Returns:
             Merged sorted list
         """
-        raise NotImplementedError("Implement merge_sorted_lists")
+
+        concat_list = list1 + list2
+        return sorted(concat_list)
     
     def rotate_list(self, lst: List[int], k: int) -> List[int]:
         """
@@ -187,7 +211,14 @@ class ListArrayExercises:
         Returns:
             New rotated list
         """
-        raise NotImplementedError("Implement rotate_list")
+        # raise NotImplementedError("Implement rotate_list")
+        if not lst: # if the list is empty, return an empty array
+            return [] 
+        k = k % len(lst) # make sure k is not greater than the length of the list
+                            # lst[-k:] the last k elemt
+                            # lst[:-k] all elements accept the last k elemt
+        
+        return lst[-k:] + lst[:-k] # Use slicing to rotate
     
     def max_subarray_sum(self, lst: List[int]) -> int:
         """

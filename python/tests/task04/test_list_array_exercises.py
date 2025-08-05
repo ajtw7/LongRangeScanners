@@ -7,7 +7,7 @@ Or: python -m unittest test_list_array_exercises.py
 
 import unittest
 from typing import List
-from list_array_exercises import ListArrayExercises
+from exercises.task04.list_array_exercises import ListArrayExercises
 
 
 class TestListArrayExercises(unittest.TestCase):
